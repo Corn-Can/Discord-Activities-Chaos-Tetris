@@ -18,12 +18,13 @@ import { LoadingScreen } from './components/ui/LoadingScreen';
 // 3. 引用新的 View 組件
 import { MenuView } from './components/views/MenuView';
 import { LobbyView } from './components/views/LobbyView';
+import { TutorialView } from './components/views/TutorialView';
 import { GameView } from './components/views/GameView';
 import { ResultOverlay } from './components/views/ResultOverlay';
 import { Player, OpponentState, ChatMessage } from './types/shared';
 
 // 定義畫面狀態
-type ViewState = 'MENU' | 'LOBBY' | 'PLAYING';
+type ViewState = 'MENU' | 'LOBBY' | 'PLAYING' | 'TUTORIAL';
 
 class ErrorBoundary extends Component<{ children: React.ReactNode }, { hasError: boolean, error: Error | null }> {
     constructor(props: { children: React.ReactNode }) {
@@ -691,7 +692,8 @@ function App() {
                     currentSkin={currentSkin}
                     setCurrentSkin={setCurrentSkin}
                     onJoin={handleJoinRoom}
-                    onPractice={handlePractice}
+                    onPractice={() => setView('PLAYING')} // 這裡會觸發 useEffect 進入練習模式
+                    onTutorial={() => setView('TUTORIAL')}
                     onSettings={handleSettings}
                     isInDiscord={isInDiscord}
                     windowHeight={windowHeight}
@@ -745,6 +747,10 @@ function App() {
                     isPractice={isPractice}
                     onLeave={handleLeavePractice}
                 />
+            )}
+
+            {view === 'TUTORIAL' && (
+                <TutorialView onBack={() => setView('MENU')} />
             )}
 
             <ResultOverlay

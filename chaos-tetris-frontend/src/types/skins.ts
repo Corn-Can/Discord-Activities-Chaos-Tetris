@@ -11,36 +11,36 @@ export interface SkinConfig {
 export const AVAILABLE_SKINS: SkinConfig[] = [
     {
         id: 'default',
-        name: '經典純色',
+        name: 'Default',
         texturePath: '/skins/default.png',
-        description: '預設',
+        description: 'Default',
         price: 0,
         isPremium: false,
         rarity: 'common'
     },
     {
         id: 'block_texture',
-        name: '噪點',
+        name: 'Block Texture',
         texturePath: '/skins/block_texture.png', // 記得把你的圖片改名並放在 public/skins/ 下
-        description: '粗糙的像素噪點',
+        description: 'Block Texture',
         price: 99,
         isPremium: true,
         rarity: 'rare'
     },
     {
         id: 'gridiant',
-        name: '漸層',
-        texturePath: '/skins/gridiant.png',
-        description: '工業金屬的漸層風格',
+        name: 'Gridiant',
+        texturePath: '/skins/gridiant.jpg',
+        description: 'Industrial metal gradient style',
         price: 149,
         isPremium: true,
         rarity: 'epic'
     },
     {
         id: '1',
-        name: '新一代',
+        name: 'Just 1',
         texturePath: '/skins/1.png',
-        description: '叮！你有一則訊息喔',
+        description: 'Ding! You have a message',
         price: 199,
         isPremium: true,
         rarity: 'legendary'

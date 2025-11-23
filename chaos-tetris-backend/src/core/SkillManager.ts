@@ -74,7 +74,7 @@ class SkillManager {
             this.gameEngine.playerSkills.shift();
             this.gameEngine.playerSkills.push(skill);
         }
-        this.gameEngine?.notifyListeners(); // Notify UI to update skill display
+        // this.gameEngine?.notifyListeners(); // Backend doesn't need UI updates
     }
 
     // Use a skill - this would typically be called by UI action
@@ -121,7 +121,7 @@ class SkillManager {
 
         if (modifier) {
             this.gameEngine.applyModifier(modifier);
-            this.gameEngine.notifyListeners(); // Notify UI for any state changes from skill
+            // this.gameEngine.notifyListeners(); // Backend doesn't need UI updates
             return true;
         }
 

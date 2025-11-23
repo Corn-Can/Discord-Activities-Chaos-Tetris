@@ -11,6 +11,7 @@ interface MenuViewProps {
     setCurrentSkin: (skin: SkinConfig) => void;
     onJoin: () => void;
     onPractice: () => void;
+    onTutorial: () => void;
     onSettings: () => void;
     isInDiscord: boolean;
     windowHeight: number;
@@ -24,6 +25,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
     setCurrentSkin,
     onJoin,
     onPractice,
+    onTutorial,
     onSettings,
     isInDiscord,
     windowHeight,
@@ -39,12 +41,6 @@ export const MenuView: React.FC<MenuViewProps> = ({
             </div>
 
 
-            {/* --- Debug 資訊 (測試完後刪除) --- */}
-            <div className="absolute top-0 left-0 bg-red-500 text-white z-[9999] text-xs p-2 font-mono">
-                Discord Detected: {isInDiscord ? "YES" : "NO"} <br />
-                Window Height: {windowHeight} <br />
-                Calculated Scale: {scale.toFixed(3)}
-            </div>
 
             <GlassPanel className="w-full p-6 gap-6">
                 {/* Room Input */}
@@ -71,8 +67,8 @@ export const MenuView: React.FC<MenuViewProps> = ({
                                 <span className="relative z-10">{s.name}</span>
                                 {currentSkin.id === s.id && <div className="absolute inset-0 bg-cyan-400/10 animate-pulse"></div>}
                                 {s.rarity && <span className={`absolute top-0 right-0 text-[8px] px-1 rounded-bl ${s.rarity === 'legendary' ? 'bg-yellow-500/20 text-yellow-400' :
-                                        s.rarity === 'epic' ? 'bg-purple-500/20 text-purple-400' :
-                                            s.rarity === 'rare' ? 'bg-blue-500/20 text-blue-400' : 'hidden'
+                                    s.rarity === 'epic' ? 'bg-purple-500/20 text-purple-400' :
+                                        s.rarity === 'rare' ? 'bg-blue-500/20 text-blue-400' : 'hidden'
                                     }`}>{s.rarity.toUpperCase()}</span>}
                             </button>
                         ))}
@@ -88,6 +84,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
                     </NeonButton>
                     <NeonButton variant="secondary" className="w-full py-3 text-base" onClick={onSettings}>
                         <div className="flex items-center gap-2"><Settings size={18} /> SETTINGS</div>
+                    </NeonButton>
+                    <NeonButton variant="secondary" className="w-full py-3 text-base" onClick={onTutorial}>
+                        <div className="flex items-center gap-2">HOW TO PLAY</div>
                     </NeonButton>
                 </div>
             </GlassPanel>
