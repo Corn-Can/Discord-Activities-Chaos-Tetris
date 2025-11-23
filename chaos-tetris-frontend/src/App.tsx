@@ -268,24 +268,24 @@ function App() {
 
             await audioManager.preloadSounds({
                 // Game Actions
-                'piece_move': '/audio/sfx/piece_move.ogg',
-                'piece_rotate': '/audio/sfx/piece_rotate.ogg',
-                'hard_drop': '/audio/sfx/hard_drop.ogg',
-                'piece_lock': '/audio/sfx/piece_lock.ogg',
-                'line_clear': '/audio/sfx/line_clear.ogg',
-                't_spin': '/audio/sfx/game_over.ogg', // If user has it
-                'combo_hit': '/audio/sfx/line_clear.ogg', // If user has it
-                'game_over': '/audio/sfx/game_over.ogg',
+                'piece_move': 'audio/sfx/piece_move.ogg',
+                'piece_rotate': 'audio/sfx/piece_rotate.ogg',
+                'hard_drop': 'audio/sfx/hard_drop.ogg',
+                'piece_lock': 'audio/sfx/piece_lock.ogg',
+                'line_clear': 'audio/sfx/line_clear.ogg',
+                't_spin': 'audio/sfx/game_over.ogg', // If user has it
+                'combo_hit': 'audio/sfx/line_clear.ogg', // If user has it
+                'game_over': 'audio/sfx/game_over.ogg',
 
                 // Skills
-                'skill_gain': '/audio/sfx/skill_gain.ogg',
-                'skill_use': '/audio/sfx/skill_use.ogg',
+                'skill_gain': 'audio/sfx/skill_gain.ogg',
+                'skill_use': 'audio/sfx/skill_use.ogg',
 
                 // UI
-                'button_click': '/audio/sfx/button_click.ogg',
+                'button_click': 'audio/sfx/button_click.ogg',
 
                 // System
-                'warning': '/audio/sfx/warning.ogg'
+                'warning': 'audio/sfx/warning.ogg'
             });
         };
         loadSounds();
@@ -692,7 +692,7 @@ function App() {
                     currentSkin={currentSkin}
                     setCurrentSkin={setCurrentSkin}
                     onJoin={handleJoinRoom}
-                    onPractice={() => setView('PLAYING')} // 這裡會觸發 useEffect 進入練習模式
+                    onPractice={handlePractice}
                     onTutorial={() => setView('TUTORIAL')}
                     onSettings={handleSettings}
                     isInDiscord={isInDiscord}

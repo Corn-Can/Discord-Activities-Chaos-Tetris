@@ -66,10 +66,10 @@ class AssetLoader {
     async preloadAssets(): Promise<void> {
         const assets: AssetItem[] = [
             // Skin textures
-            { type: 'image', url: '/skins/default.png', name: 'Default Skin' },
-            { type: 'image', url: '/skins/block_texture.png', name: 'Block Texture Skin' },
-            { type: 'image', url: '/skins/gridiant.png', name: 'Gradient Skin' },
-            { type: 'image', url: '/skins/1.png', name: 'Cyberpunk Skin' },
+            { type: 'image', url: 'skins/default.png', name: 'Default Skin' },
+            { type: 'image', url: 'skins/block_texture.png', name: 'Block Texture Skin' },
+            { type: 'image', url: 'skins/gridiant.png', name: 'Gradient Skin' },
+            { type: 'image', url: 'skins/1.png', name: 'Cyberpunk Skin' },
         ];
 
         const total = assets.length;

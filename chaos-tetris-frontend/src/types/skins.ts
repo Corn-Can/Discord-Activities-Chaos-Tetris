@@ -12,7 +12,7 @@ export const AVAILABLE_SKINS: SkinConfig[] = [
     {
         id: 'default',
         name: 'Default',
-        texturePath: '/skins/default.png',
+        texturePath: 'skins/default.png',
         description: 'Default',
         price: 0,
         isPremium: false,
@@ -21,7 +21,7 @@ export const AVAILABLE_SKINS: SkinConfig[] = [
     {
         id: 'block_texture',
         name: 'Block Texture',
-        texturePath: '/skins/block_texture.png', // 記得把你的圖片改名並放在 public/skins/ 下
+        texturePath: 'skins/block_texture.png', // 記得把你的圖片改名並放在 public/skins/ 下
         description: 'Block Texture',
         price: 99,
         isPremium: true,
@@ -30,7 +30,7 @@ export const AVAILABLE_SKINS: SkinConfig[] = [
     {
         id: 'gridiant',
         name: 'Gridiant',
-        texturePath: '/skins/gridiant.jpg',
+        texturePath: 'skins/gridiant.jpg',
         description: 'Industrial metal gradient style',
         price: 149,
         isPremium: true,
@@ -39,7 +39,7 @@ export const AVAILABLE_SKINS: SkinConfig[] = [
     {
         id: '1',
         name: 'Just 1',
-        texturePath: '/skins/1.png',
+        texturePath: 'skins/1.png',
         description: 'Ding! You have a message',
         price: 199,
         isPremium: true,
