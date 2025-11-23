@@ -1,6 +1,6 @@
 import { DiscordSDK } from "@discord/embedded-app-sdk";
 
-const CLIENT_ID = process.env.REACT_APP_DISCORD_CLIENT_ID || '你的_APPLICATION_ID';
+const CLIENT_ID = '1439543217350639716'; // Hardcoded from error message to ensure match
 // 注意：稍後我們要將 ID 放入 .env 檔案
 
 class DiscordService {
