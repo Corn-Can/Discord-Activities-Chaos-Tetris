@@ -1,6 +1,7 @@
 {
   "name": "chaos-tetris-frontend",
   "version": "0.1.0",
+  "homepage": "./",
   "proxy": "http://localhost:3002",
   "private": true,
   "dependencies": {
