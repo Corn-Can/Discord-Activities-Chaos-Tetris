@@ -5,9 +5,13 @@ class SocketService {
 
     constructor() {
         // Connect to the backend server
-        // In production, use the environment variable. In development, fallback to proxy or localhost.
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || '/';
-        this.socket = io(backendUrl);
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to local if missing
+        console.log("🔌 Attempting to connect to backend:", backendUrl);
+
+        this.socket = io(backendUrl, {
+            transports: ['websocket', 'polling'], // Try websocket first, fallback to polling
+            withCredentials: true
+        });
 
         this.setupListeners();
     }
