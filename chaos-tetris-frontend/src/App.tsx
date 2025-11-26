@@ -305,7 +305,7 @@ function App() {
             try {
                 // Add a timeout to prevent hanging indefinitely
                 const timeoutPromise = new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error("Discord SDK Init Timeout")), 5000)
+                    setTimeout(() => reject(new Error("Discord SDK Init Timeout")), 15000)
                 );
 
                 const inDiscord = await Promise.race([

@@ -459,6 +459,7 @@ export class GameEngine {
 
     const now = Date.now();
     if (now - this.lastDropTime > this.dropTime) {
+      // console.log("Dropping piece...", this.currentPiece.y); // Debug log
       this.movePiece('down');
       this.lastDropTime = now;
     }
