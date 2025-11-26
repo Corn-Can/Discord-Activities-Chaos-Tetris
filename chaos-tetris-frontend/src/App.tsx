@@ -352,6 +352,7 @@ function App() {
         });
 
         const eventUnsubscribe = gameEngine.onGameEvent((event, data) => {
+            if (isPractice) return; // Don't send socket events in practice mode
             switch (event) {
                 case 'move': socketService.sendMove(data); break;
                 case 'rotate': socketService.sendRotate(data); break;
@@ -521,7 +522,7 @@ function App() {
             socketService.socket.off('player:dead');
             gameEngine.stopGameLoop();
         };
-    }, []);
+    }, [isPractice]);
 
     // Background Music Management
     useEffect(() => {

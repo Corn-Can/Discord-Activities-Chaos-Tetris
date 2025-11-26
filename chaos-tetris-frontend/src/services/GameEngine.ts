@@ -402,15 +402,25 @@ export class GameEngine {
   }
 
   public startGameLoop() {
+    console.log("🔄 Starting Game Loop...");
     if (this.gameLoopInterval) clearInterval(this.gameLoopInterval);
     if (this.gameTimerInterval) clearInterval(this.gameTimerInterval);
     if (this.stateSyncInterval) clearInterval(this.stateSyncInterval);
-    if (this.isPaused) return;
+
+    if (this.isPaused) {
+      console.warn("⚠️ Game started but isPaused is true!");
+      // We probably want to unpause here?
+      this.isPaused = false;
+    }
 
     this.lastDropTime = Date.now();
 
     this.gameLoopInterval = setInterval(() => {
-      if (!this.isPaused) this.update();
+      if (!this.isPaused) {
+        this.update();
+      } else {
+        // console.log("Game Loop Paused");
+      }
     }, 16); // ~60 FPS
 
     this.gameTimerInterval = setInterval(() => {
@@ -459,7 +469,7 @@ export class GameEngine {
 
     const now = Date.now();
     if (now - this.lastDropTime > this.dropTime) {
-      // console.log("Dropping piece...", this.currentPiece.y); // Debug log
+      console.log(`⬇️ Dropping piece... Y: ${this.currentPiece?.y}, DropTime: ${this.dropTime}`);
       this.movePiece('down');
       this.lastDropTime = now;
     }
