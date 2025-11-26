@@ -797,7 +797,9 @@ export class GameEngine {
         this.emitGameEvent('attack', attackLines);
       }
 
-      skillManager.tryAcquireSkillCard(); // Attempt to acquire skill on line clear
+      if (!this.isPractice) {
+        skillManager.tryAcquireSkillCard(); // Attempt to acquire skill on line clear
+      }
     } else if (this.lastMoveWasTSpin) {
       this.score += 400; // T-Spin Mini
       this.timeSinceLastScore = 0; // Reset on score
