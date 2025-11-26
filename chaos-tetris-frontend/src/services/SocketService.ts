@@ -14,10 +14,17 @@ class SocketService {
 
         console.log(`🔌 Socket connecting to: ${backendUrl} (Discord Mode: ${isDiscord})`);
 
-        this.socket = io(backendUrl, {
+        const socketOptions: any = {
             transports: ['websocket', 'polling'], // Try websocket first, fallback to polling
             withCredentials: true
-        });
+        };
+
+        // If in Discord, route through the /api mapping
+        if (isDiscord) {
+            socketOptions.path = '/api/socket.io';
+        }
+
+        this.socket = io(backendUrl, socketOptions);
 
         this.setupListeners();
     }
