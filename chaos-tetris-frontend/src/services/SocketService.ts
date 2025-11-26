@@ -5,8 +5,14 @@ class SocketService {
 
     constructor() {
         // Connect to the backend server
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to local if missing
-        console.log("🔌 Attempting to connect to backend:", backendUrl);
+        // If running in Discord (discordsays.com), use relative path to avoid CSP errors.
+        // The Discord Proxy will forward this to the backend via URL Mappings.
+        const isDiscord = window.location.hostname.includes('discordsays.com');
+        const backendUrl = isDiscord
+            ? '/'
+            : (process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002');
+
+        console.log(`🔌 Socket connecting to: ${backendUrl} (Discord Mode: ${isDiscord})`);
 
         this.socket = io(backendUrl, {
             transports: ['websocket', 'polling'], // Try websocket first, fallback to polling
